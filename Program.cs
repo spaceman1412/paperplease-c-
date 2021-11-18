@@ -8,14 +8,26 @@ namespace Project
 {
     class Program
     {
-        public static List<Dialog> dialogs = new List<Dialog>();
-        public static List<Passport> passports = new List<Passport>();
-
+        public static List<Person> persons = new List<Person>();
         public static Rule rule = new Rule(null);
         static void Main(string[] args)
         {
-            ReadData();
-            Start();
+            // ReadData();
+            // Start();
+
+            ReadFile read = new ReadFile();
+            persons = read.ReadPerson();
+
+            // foreach (var person in persons)
+            // {
+            //     Console.WriteLine(person.getName());
+            // }
+            // foreach (var person in persons)
+            // {
+            //     Console.WriteLine(person);
+            //     Person.Dialog dialog = person.getDialog();
+            //     dialog.Output();
+            // }
         }
 
         public static void ReadData()
@@ -25,20 +37,19 @@ namespace Project
             Rule rule1 = new Rule(read.ReadRule());
             rule = rule1;
 
-
-            dialogs = read.ReadDialog();
-
-            passports = read.ReadPassport();
+            persons = read.ReadPerson();
         }
         public static void Start()
         {
             int count = 1;
-            foreach (var passport in passports)
+            foreach (var person in persons)
             {
+                Person.Passport passport = person.getPassport();
+                Person.Dialog dialog = person.getDialog();
                 while (true)
                 {
                     Console.Clear();
-                    Console.WriteLine("********** " + count + ". " + passport.getName() + " **********");
+                    Console.WriteLine("********** " + count + ". " + person.getName() + " **********");
                     Console.WriteLine("1.Read the rule");
                     Console.WriteLine("2.View the passport");
                     Console.WriteLine("3.View the dialogue");
@@ -64,7 +75,7 @@ namespace Project
                     }
                     if (input == "3")
                     {
-                        string back = dialogs[count - 1].Output();
+                        string back = dialog.Output();
                         if (back == "b")
                         {
                             Console.Clear();
