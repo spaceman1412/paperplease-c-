@@ -6,51 +6,57 @@ namespace Project
 {
     class ReadFile
     {
-        List<Dialog> dialogs = new List<Dialog>();
 
-        public List<Dialog> ReadDialog()
+        public Person.Dialog ReadDialog(string line)
         {
-            string[] lines = File.ReadAllLines("dialog.txt");
-            List<Dialog> dialogs = new List<Dialog>();
 
-            foreach (var line in lines)
-            {
-                string[] words = line.Split(',');
-                string purpose = words[0];
-                int age = Int32.Parse(words[1]);
-                int duration = Int32.Parse(words[2]);
-                string enterDay = words[3];
+            string[] words = line.Split(',');
+            string purpose = words[0];
+            int age = Int32.Parse(words[1]);
+            int duration = Int32.Parse(words[2]);
+            string enterDay = words[3];
 
-                Dialog dialog = new Dialog(purpose, age, duration, enterDay);
-                dialogs.Add(dialog);
-            }
-            return dialogs;
+            Person.Dialog dialog = new Person.Dialog(purpose, age, duration, enterDay);
+
+            return dialog;
         }
 
-        public List<Passport> ReadPassport()
+        public Person.Passport ReadPassport(string line)
         {
+            string[] words = line.Split(',');
+            string name = words[0];
+            int age = Int32.Parse(words[1]);
+            string dateOfBirth = words[2];
+            string sex = words[3];
+            string country = words[4];
+            string purpose = words[5];
+            int duration = Int32.Parse(words[6]);
+            string enterDay = words[7];
+            string passPortNumber = words[8];
+            string exp = words[9];
 
-            string[] lines = File.ReadAllLines("passport.txt");
-            List<Passport> passports = new List<Passport>();
+            Person.Passport passport = new Person.Passport(name, age, dateOfBirth, sex, country, purpose, duration, enterDay, passPortNumber, exp);
 
-            foreach (var line in lines)
+            return passport;
+        }
+
+        public List<Person> ReadPerson()
+        {
+            List<Person> persons = new List<Person>();
+            string[] dialog = File.ReadAllLines("dialog.txt");
+            string[] passport = File.ReadAllLines("passport.txt");
+
+            for (int i = 0; i < dialog.Length; i++)
             {
-                string[] words = line.Split(',');
-                string name = words[0];
-                int age = Int32.Parse(words[1]);
-                string dateOfBirth = words[2];
-                string sex = words[3];
-                string country = words[4];
-                string purpose = words[5];
-                int duration = Int32.Parse(words[6]);
-                string enterDay = words[7];
-                string passPortNumber = words[8];
-                string exp = words[9];
+                Person.Dialog Dialog = ReadDialog(dialog[i]);
+                Person.Passport Passport = ReadPassport(passport[i]);
 
-                Passport passport = new Passport(name, age, dateOfBirth, sex, country, purpose, duration, enterDay, passPortNumber, exp);
-                passports.Add(passport);
+                Person person = new Person(Dialog, Passport);
+                persons.Add(person);
             }
-            return passports;
+
+            return persons;
+
         }
 
 

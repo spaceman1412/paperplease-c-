@@ -8,14 +8,14 @@ namespace Project
 {
     class Program
     {
-        public static List<Dialog> dialogs = new List<Dialog>();
-        public static List<Passport> passports = new List<Passport>();
+        public static List<Person> persons = new List<Person>();
 
         public static Rule rule = new Rule(null);
         static void Main(string[] args)
         {
             ReadData();
             Start();
+
         }
 
         public static void ReadData()
@@ -26,15 +26,15 @@ namespace Project
             rule = rule1;
 
 
-            dialogs = read.ReadDialog();
-
-            passports = read.ReadPassport();
+            persons = read.ReadPerson();
         }
         public static void Start()
         {
             int count = 1;
-            foreach (var passport in passports)
+            foreach (var person in persons)
             {
+                Person.Passport passport = person.getPassport();
+                Person.Dialog dialog = person.getDialog();
                 while (true)
                 {
                     Console.Clear();
@@ -64,7 +64,7 @@ namespace Project
                     }
                     if (input == "3")
                     {
-                        string back = dialogs[count - 1].Output();
+                        string back = dialog.Output();
                         if (back == "b")
                         {
                             Console.Clear();
