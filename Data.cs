@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Project
 {
@@ -31,100 +32,46 @@ namespace Project
 
     public class Person
     {
-        static string name;
-        static int age;
-        static string dateOfBirth;
-        static string sex;
-        static string country;
-
-        public string getName()
-        {
-            return name;
-        }
-
-        public void setName(string Name)
-        {
-            name = Name;
-        }
-
-        public int getAge()
-        {
-            return age;
-        }
-
-        public void setAge(int Age)
-        {
-            age = Age;
-        }
-
-        public string getDateOfBirth()
-        {
-            return dateOfBirth;
-        }
-
-        public void setDateOfBirth(string DateOfBirth)
-        {
-            dateOfBirth = DateOfBirth;
-        }
-
-        public string getSex()
-        {
-            return sex;
-        }
-
-        public void setSex(string Sex)
-        {
-            sex = Sex;
-        }
-
-        public string getCountry()
-        {
-            return country;
-        }
-
-        public void setCountry(string Country)
-        {
-            country = Country;
-        }
-
-
-
-        static Dialog dialog;
-
-        static Passport passport;
+        Dialog dialog;
+        Passport passport;
 
         public Dialog getDialog()
         {
-            return dialog;
+            return this.dialog;
         }
 
-        public void setDialog(Dialog dialog1)
+        public void setDialog(Dialog dialog)
         {
-            dialog = dialog1;
+            this.dialog = dialog;
         }
 
         public Passport getPassport()
         {
-            return passport;
+            return this.passport;
         }
 
-        public void setPassport(Passport passport1)
+        public void setPassport(Passport passport)
         {
-            passport = passport1;
+            this.passport = passport;
         }
 
 
-        public Person(string Name, int Age, string DateOfBirth, string Sex, string Country, Dialog Dialog, Passport Passport)
+        public Person(Dialog dialog, Passport passport)
         {
-            name = Name;
-            age = Age;
-            dateOfBirth = DateOfBirth;
-            sex = Sex;
-            country = Country;
-            dialog = Dialog;
-            passport = Passport;
+            this.dialog = dialog;
+            this.passport = passport;
         }
 
+        public List<string> Compare()
+        {
+            List<string> errors = new List<string>();
+            if (dialog.getAge() != passport.getAge())
+            {
+                errors.Add("age");
+            }
+
+            return errors;
+        }
         public class Dialog
         {
             string purpose;
@@ -163,7 +110,6 @@ namespace Project
                 this.duration = duration;
             }
 
-
             public string getEnterDay()
             {
                 return this.enterDay;
@@ -195,7 +141,6 @@ namespace Project
                 // clear and return
                 Console.Write("Turn back (b): ");
                 string a = Console.ReadLine();
-
                 return a;
             }
 
@@ -203,7 +148,11 @@ namespace Project
 
         public class Passport
         {
-
+            string name;
+            int age;
+            string dateOfBirth;
+            string sex;
+            string country;
             string purpose;
             int duration;
 
@@ -221,6 +170,16 @@ namespace Project
             public void setPurpose(string purpose)
             {
                 this.purpose = purpose;
+            }
+
+            public int getAge()
+            {
+                return this.age;
+            }
+
+            public void setAge(int age)
+            {
+                this.age = age;
             }
 
             public int getDuration()
@@ -244,6 +203,46 @@ namespace Project
             }
 
 
+            public string getName()
+            {
+                return this.name;
+            }
+
+            public void setName(string name)
+            {
+                this.name = name;
+            }
+
+            public string getDateOfBirth()
+            {
+                return this.dateOfBirth;
+            }
+
+            public void setDateOfBirth(string dateOfBirth)
+            {
+                this.dateOfBirth = dateOfBirth;
+            }
+
+            public string getSex()
+            {
+                return this.sex;
+            }
+
+            public void setSex(string sex)
+            {
+                this.sex = sex;
+            }
+
+            public string getCountry()
+            {
+                return this.country;
+            }
+
+            public void setCountry(string country)
+            {
+                this.country = country;
+            }
+
             public string getPassPortNumber()
             {
                 return this.passPortNumber;
@@ -265,22 +264,27 @@ namespace Project
             }
             //ngay het han
 
-            public Passport(string purpose, int duration, string enterDay, string passPortNumber, string exp)
+            public Passport(string name, int age, string dateOfBirth, string sex, string country, string purpose, int duration, string enterDay, string passPortNumber, string exp)
             {
+                this.name = name;
+                this.dateOfBirth = dateOfBirth;
+                this.sex = sex;
+                this.country = country;
                 this.passPortNumber = passPortNumber;
                 this.exp = exp;
                 this.purpose = purpose;
                 this.duration = duration;
                 this.enterDay = enterDay;
+                this.age = age;
             }
 
 
             public string Output()
             {
-                Console.WriteLine("Name: " + name);
-                Console.WriteLine("Date of Birth: " + dateOfBirth);
-                Console.WriteLine("Sex: " + sex);
-                Console.WriteLine("Country: " + country);
+                Console.WriteLine("Name: " + this.name);
+                Console.WriteLine("Date of Birth: " + this.dateOfBirth);
+                Console.WriteLine("Sex: " + this.sex);
+                Console.WriteLine("Country: " + this.country);
                 Console.WriteLine("Exp: " + this.exp);
                 Console.WriteLine("*****" + this.passPortNumber + "******");
                 // clear and return
