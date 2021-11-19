@@ -9,12 +9,29 @@ namespace Project
     class Program
     {
         public static List<Person> persons = new List<Person>();
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
         public static Rule rule = new Rule(null);
         static void Main(string[] args)
         {
-            ReadData();
-            Start();
+            // ReadData();
+            // Start();
+
+            ReadFile read = new ReadFile();
+            persons = read.ReadPerson();
+
+            // foreach (var person in persons)
+            // {
+            //     Console.WriteLine(person.getName());
+            // }
+            // foreach (var person in persons)
+            // {
+            //     Console.WriteLine(person);
+            //     Person.Dialog dialog = person.getDialog();
+            //     dialog.Output();
+            // }
         }
 
         public static void ReadData()
@@ -23,12 +40,19 @@ namespace Project
 
             Rule rule1 = new Rule(read.ReadRule());
             rule = rule1;
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
             persons = read.ReadPerson();
         }
         public static void Start()
         {
             int count = 1;
+<<<<<<< HEAD
             int point = 0;
+=======
+>>>>>>> main
             foreach (var person in persons)
             {
                 Person.Passport passport = person.getPassport();
@@ -36,8 +60,12 @@ namespace Project
                 while (true)
                 {
                     Console.Clear();
+<<<<<<< HEAD
                     Console.WriteLine("********** " + count + ". " + passport.getName() + " **********");
                     Console.WriteLine("Your current point: " + point);
+=======
+                    Console.WriteLine("********** " + count + ". " + person.getName() + " **********");
+>>>>>>> main
                     Console.WriteLine("1.Read the rule");
                     Console.WriteLine("2.View the passport");
                     Console.WriteLine("3.View the dialogue");
