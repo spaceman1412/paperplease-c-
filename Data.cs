@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Project
 {
@@ -59,6 +60,17 @@ namespace Project
         {
             this.dialog = dialog;
             this.passport = passport;
+        }
+
+        public List<string> Compare()
+        {
+            List<string> errors = new List<string>();
+            if (dialog.getAge() != passport.getAge())
+            {
+                errors.Add("age");
+            }
+
+            return errors;
         }
         public class Dialog
         {
