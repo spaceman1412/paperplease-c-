@@ -81,6 +81,10 @@ namespace Project
             {
                 errors.Add("Purpose");
             }
+            if (dialog.getDuration() != passport.getDuration())
+            {
+                errors.Add("Duration");
+            }
             return errors;
         }
         public class Dialog
@@ -92,7 +96,6 @@ namespace Project
 
             int duration;
 
-            string enterDay;
             public string getName()
             {
                 return this.name;
@@ -132,25 +135,17 @@ namespace Project
                 this.duration = duration;
             }
 
-            public string getEnterDay()
-            {
-                return this.enterDay;
-            }
 
-            public void setEnterDay(string enterDay)
-            {
-                this.enterDay = enterDay;
-            }
 
             //ngay nhap canh
 
-            public Dialog(string name, string purpose, int age, int duration, string enterDay)
+            public Dialog(string name, string purpose, int age, int duration)
             {
                 this.name = name;
                 this.purpose = purpose;
                 this.age = age;
                 this.duration = duration;
-                this.enterDay = enterDay;
+
             }
 
             public string Output()
@@ -162,7 +157,7 @@ namespace Project
                 Console.WriteLine("Me: How old are you? ");
                 Console.WriteLine("You: I'm " + this.age);
                 Console.WriteLine("Me: When you go back?");
-                Console.WriteLine("You: I go back at " + this.enterDay);
+                Console.WriteLine("You: I go back in the next " + this.duration + " days");
                 // clear and return
                 Console.Write("Turn back (b): ");
                 string a = Console.ReadLine();
@@ -181,7 +176,7 @@ namespace Project
             string purpose;
             int duration;
 
-            string enterDay;
+
 
             string passPortNumber;
 
@@ -217,15 +212,7 @@ namespace Project
                 this.duration = duration;
             }
 
-            public string getEnterDay()
-            {
-                return this.enterDay;
-            }
 
-            public void setEnterDay(string enterDay)
-            {
-                this.enterDay = enterDay;
-            }
 
 
             public string getName()
@@ -281,7 +268,7 @@ namespace Project
 
 
 
-            public Passport(string name, int age, string dateOfBirth, string sex, string country, string purpose, int duration, string enterDay, string passPortNumber)
+            public Passport(string name, int age, string dateOfBirth, string sex, string country, string purpose, int duration, string passPortNumber)
             {
                 this.name = name;
                 this.dateOfBirth = dateOfBirth;
@@ -290,7 +277,6 @@ namespace Project
                 this.passPortNumber = passPortNumber;
                 this.purpose = purpose;
                 this.duration = duration;
-                this.enterDay = enterDay;
                 this.age = age;
             }
 
@@ -302,6 +288,7 @@ namespace Project
                 Console.WriteLine("Sex: " + this.sex);
                 Console.WriteLine("Country: " + this.country);
                 Console.WriteLine("Purpose: " + this.purpose);
+                Console.WriteLine("Duration: " + this.duration);
                 Console.WriteLine("*****" + this.passPortNumber + "******");
                 // clear and return
                 Console.Write("Turn back (b): ");

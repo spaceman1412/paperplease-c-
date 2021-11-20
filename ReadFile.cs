@@ -15,9 +15,9 @@ namespace Project
             string purpose = words[1];
             int age = Int32.Parse(words[2]);
             int duration = Int32.Parse(words[3]);
-            string enterDay = words[4];
 
-            Person.Dialog dialog = new Person.Dialog(name, purpose, age, duration, enterDay);
+
+            Person.Dialog dialog = new Person.Dialog(name, purpose, age, duration);
 
             return dialog;
         }
@@ -32,11 +32,10 @@ namespace Project
             string country = words[4];
             string purpose = words[5];
             int duration = Int32.Parse(words[6]);
-            string enterDay = words[7];
-            string passPortNumber = words[8];
+            string passPortNumber = words[7];
 
 
-            Person.Passport passport = new Person.Passport(name, age, dateOfBirth, sex, country, purpose, duration, enterDay, passPortNumber);
+            Person.Passport passport = new Person.Passport(name, age, dateOfBirth, sex, country, purpose, duration, passPortNumber);
 
             return passport;
         }

@@ -1,3 +1,8 @@
-John Snow,Travel,18,5,5/29
-John Joe,Travel,19,5,5/20
-Mariah Ozawa,Travel,20,4,5/20
+John Snow,Travel,18,5
+John Joe,Travel,19,5
+Lonely Boy,Working,27,30
+Mariah Ozawa,Working,27,30
+Cristiano Ronaldo,Working,36,30
+Georgina Rodriguez,Travel,27,3
+Irina Shayk,Working,30,15
+Charles Noah,Travel,21,10

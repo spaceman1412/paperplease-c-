@@ -1,4 +1,4 @@
 ========= The rule for this game ======
 1. The Passport numbers ID must have to be correct (start with 19)
-2. The information in dialog have to be the same with the information in Passport
-3. The experation days must be right  
+2. The information in dialog have to be the same with the information in Passport 
+(Name, Age, Purpose, Duration)
