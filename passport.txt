@@ -1,7 +1,7 @@
 John Snow,18,15/9/2003,Male,US,Travel,5,19110135
 John Joe,20,11/10/2001,Male,US,Travel,5,18110115
 Eric Bailly,27,12/4/1994,Male,EU,Working,30,19110152
-Mariah Ozawa,27,12/9/1994,Female,EU,Working,30,19110122
+Mariah Ozawa,27,12/9/1994,Female,Japan,Working,30,19110122
 Cristiano Ronaldo,36,5/2/1985,Male,EU,Working,30,19210111
 Georgina Rodriguez,27,27/1/1994,Female,EU,Travel,30,19555000
 Irina Shayk,35,6/1/1986,Female,EU,Working,15,19525000

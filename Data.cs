@@ -281,7 +281,7 @@ namespace Project
             }
 
 
-            public string Output()
+            public string Output(string screen)
             {
                 Console.WriteLine("Name: " + this.name);
                 Console.WriteLine("Date of Birth: " + this.dateOfBirth);
@@ -291,9 +291,22 @@ namespace Project
                 Console.WriteLine("Duration: " + this.duration);
                 Console.WriteLine("*****" + this.passPortNumber + "******");
                 // clear and return
-                Console.Write("Turn back (b): ");
-                string a = Console.ReadLine();
-                return a;
+                if (screen == "Game")
+                {
+                    Console.Write("Turn back (b): ");
+                    string a = Console.ReadLine();
+                    return a;
+                }
+                else if (screen == "Manage")
+                {
+                    Console.Write("Go next (n): ");
+                    string a = Console.ReadLine();
+                    return a;
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
     }

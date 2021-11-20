@@ -2,3 +2,5 @@
 1. The Passport numbers ID must have to be correct (start with 19)
 2. The information in dialog have to be the same with the information in Passport 
 (Name, Age, Purpose, Duration)
+3. The data in here corresponding to the current year which is 2021
+(If born in 2003 so the age is 18)

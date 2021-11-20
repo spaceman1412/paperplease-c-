@@ -14,7 +14,8 @@ namespace Project
         static void Main(string[] args)
         {
             ReadData();
-            Start();
+            Manage();
+            // Start();
         }
 
         public static void ReadData()
@@ -25,6 +26,16 @@ namespace Project
             rule = rule1;
             persons = read.ReadPerson();
         }
+
+        public static void Manage()
+        {
+            Console.WriteLine("Input how many passengers you want to manage (type number only): ");
+            int number = Int32.Parse(Console.ReadLine());
+            Manage manage = new Manage();
+            manage.Input(number);
+            manage.Output();
+        }
+
         public static void Start()
         {
             int count = 1;
@@ -55,7 +66,7 @@ namespace Project
                     }
                     if (input == "2")
                     {
-                        string back = passport.Output();
+                        string back = passport.Output("Game");
                         if (back == "b")
                         {
                             Console.Clear();
