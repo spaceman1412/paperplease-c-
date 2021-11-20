@@ -63,6 +63,7 @@ namespace Project
                         string a = "a";
                         while (a != "n")
                         {
+                            Console.Clear();
                             Console.WriteLine("*******" + count + "/" + persons.Count + "*******");
                             a = person.getPassport().Output("Manage");
                         }

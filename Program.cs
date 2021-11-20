@@ -14,8 +14,8 @@ namespace Project
         static void Main(string[] args)
         {
             ReadData();
-            Manage();
-            // Start();
+            // Manage();
+            Start();
         }
 
         public static void ReadData()
@@ -27,8 +27,31 @@ namespace Project
             persons = read.ReadPerson();
         }
 
+        public static void Start()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("What's do you want to do?");
+                Console.WriteLine("1. Play game");
+                Console.WriteLine("2. Manage");
+                Console.Write("Input the number (1-2): ");
+                string a = Console.ReadLine();
+                if (a == "1")
+                {
+                    Game();
+                }
+                if (a == "2")
+                {
+                    Manage();
+                }
+            }
+        }
+
+
         public static void Manage()
         {
+            Console.Clear();
             Console.WriteLine("Input how many passengers you want to manage (type number only): ");
             int number = Int32.Parse(Console.ReadLine());
             Manage manage = new Manage();
@@ -36,7 +59,7 @@ namespace Project
             manage.Output();
         }
 
-        public static void Start()
+        public static void Game()
         {
             int count = 1;
             int point = 0;
