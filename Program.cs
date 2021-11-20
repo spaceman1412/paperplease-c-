@@ -87,6 +87,7 @@ namespace Project
                             {
                                 Console.Write(" " + error);
                             }
+                            Console.WriteLine();
                         }
                         Console.ReadLine();
                         count++;
@@ -103,6 +104,7 @@ namespace Project
                             {
                                 Console.Write(" " + error);
                             }
+                            Console.WriteLine();
                             Console.WriteLine("Your point: " + point + " + 10");
                             point += 10;
                         }

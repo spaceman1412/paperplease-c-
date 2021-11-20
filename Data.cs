@@ -69,17 +69,39 @@ namespace Project
             {
                 errors.Add("age");
             }
-
+            if (passport.getPassPortNumber().Substring(0, 2) != "19")
+            {
+                errors.Add("ID");
+            }
+            if (dialog.getName() != passport.getName())
+            {
+                errors.Add("Name");
+            }
+            if (dialog.getPurpose() != passport.getPurpose())
+            {
+                errors.Add("Purpose");
+            }
             return errors;
         }
         public class Dialog
         {
+            string name;
+
             string purpose;
             int age;
 
             int duration;
 
             string enterDay;
+            public string getName()
+            {
+                return this.name;
+            }
+
+            public void setName(string name)
+            {
+                this.name = name;
+            }
 
             public string getPurpose()
             {
@@ -122,8 +144,9 @@ namespace Project
 
             //ngay nhap canh
 
-            public Dialog(string purpose, int age, int duration, string enterDay)
+            public Dialog(string name, string purpose, int age, int duration, string enterDay)
             {
+                this.name = name;
                 this.purpose = purpose;
                 this.age = age;
                 this.duration = duration;
@@ -132,6 +155,8 @@ namespace Project
 
             public string Output()
             {
+                Console.WriteLine("Me: What's your name?");
+                Console.WriteLine("You: My name is " + this.name);
                 Console.WriteLine("Me: What's your purpose of this trip?");
                 Console.WriteLine("You: I go to " + this.purpose);
                 Console.WriteLine("Me: How old are you? ");
@@ -160,7 +185,7 @@ namespace Project
 
             string passPortNumber;
 
-            string exp;
+
 
             public string getPurpose()
             {
@@ -253,25 +278,16 @@ namespace Project
                 this.passPortNumber = passPortNumber;
             }
 
-            public string getExp()
-            {
-                return this.exp;
-            }
 
-            public void setExp(string exp)
-            {
-                this.exp = exp;
-            }
-            //ngay het han
 
-            public Passport(string name, int age, string dateOfBirth, string sex, string country, string purpose, int duration, string enterDay, string passPortNumber, string exp)
+
+            public Passport(string name, int age, string dateOfBirth, string sex, string country, string purpose, int duration, string enterDay, string passPortNumber)
             {
                 this.name = name;
                 this.dateOfBirth = dateOfBirth;
                 this.sex = sex;
                 this.country = country;
                 this.passPortNumber = passPortNumber;
-                this.exp = exp;
                 this.purpose = purpose;
                 this.duration = duration;
                 this.enterDay = enterDay;
@@ -285,13 +301,12 @@ namespace Project
                 Console.WriteLine("Date of Birth: " + this.dateOfBirth);
                 Console.WriteLine("Sex: " + this.sex);
                 Console.WriteLine("Country: " + this.country);
-                Console.WriteLine("Exp: " + this.exp);
+                Console.WriteLine("Purpose: " + this.purpose);
                 Console.WriteLine("*****" + this.passPortNumber + "******");
                 // clear and return
                 Console.Write("Turn back (b): ");
                 string a = Console.ReadLine();
                 return a;
-
             }
         }
     }

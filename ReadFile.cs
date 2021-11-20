@@ -11,12 +11,13 @@ namespace Project
         {
 
             string[] words = line.Split(',');
-            string purpose = words[0];
-            int age = Int32.Parse(words[1]);
-            int duration = Int32.Parse(words[2]);
-            string enterDay = words[3];
+            string name = words[0];
+            string purpose = words[1];
+            int age = Int32.Parse(words[2]);
+            int duration = Int32.Parse(words[3]);
+            string enterDay = words[4];
 
-            Person.Dialog dialog = new Person.Dialog(purpose, age, duration, enterDay);
+            Person.Dialog dialog = new Person.Dialog(name, purpose, age, duration, enterDay);
 
             return dialog;
         }
@@ -33,9 +34,9 @@ namespace Project
             int duration = Int32.Parse(words[6]);
             string enterDay = words[7];
             string passPortNumber = words[8];
-            string exp = words[9];
 
-            Person.Passport passport = new Person.Passport(name, age, dateOfBirth, sex, country, purpose, duration, enterDay, passPortNumber, exp);
+
+            Person.Passport passport = new Person.Passport(name, age, dateOfBirth, sex, country, purpose, duration, enterDay, passPortNumber);
 
             return passport;
         }
@@ -56,7 +57,6 @@ namespace Project
             }
 
             return persons;
-
         }
 
 
